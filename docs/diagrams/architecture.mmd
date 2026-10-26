@@ -1,0 +1,12 @@
+flowchart TB
+    Client["Consola o integración API"] --> API["HTTP: token e idempotencia"]
+    N8N["n8n: workflow importable"] -.-> API
+    API --> Cases["Expedientes: tareas y aprobaciones"]
+    API --> Policies["Políticas: versiones y fragmentos"]
+    API --> Retrieval["RAG: filtro de acceso y TF-IDF"]
+    Retrieval --> Sources["Respuesta extractiva con citas"]
+    Retrieval -.-> LLM["Ollama opcional: selección de fuentes"]
+    LLM -.-> Sources
+    Cases --> Database[("SQLite: estado y auditoría")]
+    Policies --> Database
+    Database --> Retrieval

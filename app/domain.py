@@ -6,7 +6,7 @@ import uuid
 from datetime import date, timedelta
 
 TITLE = "People Operations"
-DESCRIPTION = "Onboarding con dependencias, aprobaciones y seguimiento de tareas."
+DESCRIPTION = "Onboarding con dependencias, aprobaciones y consultas de políticas con fuentes verificables."
 DEMO = {"action": "create", "employee_ref": "EMP-DEMO-042", "role": "engineering", "start_date": "2026-10-26"}
 
 TASKS = {
@@ -43,6 +43,9 @@ def process(payload, store):
     action = payload.get("action", "create")
     if not isinstance(action, str):
         raise ValueError("action debe ser texto")
+    if action in {"policy_ingest", "policy_delete", "query_policy", "policy_demo"}:
+        from .retrieval import process as policy_process
+        return policy_process(payload, store)
     if action == "create":
         employee_ref, role, start = payload.get("employee_ref"), payload.get("role"), payload.get("start_date")
         if not isinstance(employee_ref, str) or not re.fullmatch(r"[A-Z0-9][A-Z0-9_-]{2,39}", employee_ref):

@@ -1,0 +1,1 @@
+{"action":"query_policy","tenant":"demo-company","groups":["employees"],"query":"provisión cuentas identidad aprobación"}

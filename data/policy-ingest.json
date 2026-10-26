@@ -1,0 +1,1 @@
+{"action":"policy_ingest","tenant":"demo-company","policy_id":"access-policy","title":"Alta de cuentas","access_group":"employees","expected_version":0,"content":"La provisión de cuentas requiere completar la lectura de políticas y verificar la identidad. El responsable aprueba el acceso antes de registrar la cuenta como completada."}

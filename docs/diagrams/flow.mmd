@@ -1,0 +1,21 @@
+flowchart TD
+    Request["Solicitud autenticada"] --> Retry{"¿Clave y contenido ya procesados?"}
+    Retry -->|Sí| Replay["Devolver respuesta persistida"]
+    Retry -->|No| Action{"Tipo de operación"}
+    Action -->|Política| ValidatePolicy["Validar texto, ámbito y versión esperada"]
+    ValidatePolicy --> Index["Versionar y sustituir fragmentos"]
+    Action -->|Consulta| Scope["Filtrar tenant y grupos"]
+    Scope --> Rank["Recuperar fuentes por TF-IDF"]
+    Rank --> Evidence{"¿Existe sustento suficiente?"}
+    Evidence -->|No| Abstain["Abstenerse y devolver fuentes vacías"]
+    Evidence -->|Sí| Mode{"¿Ollama configurado?"}
+    Mode -->|No| Cite["Construir respuesta con extractos y citas"]
+    Mode -->|Sí| Select["Seleccionar y validar identificadores de fuente"]
+    Select --> Cite
+    Action -->|Expediente| Rules["Validar estado, dependencias y aprobación"]
+    Rules --> Case["Registrar transición del expediente"]
+    Index --> Commit["Persistir resultado y auditoría"]
+    Abstain --> Commit
+    Cite --> Commit
+    Case --> Commit
+    Commit --> Response["Devolver resultado"]
