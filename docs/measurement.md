@@ -16,4 +16,4 @@ La auditoría conserva cambios del flujo. Las consultas documentales no completa
 
 `python -m app metrics` expone latencia y transacciones locales únicas. Incluye trabajo de base de datos y llamadas síncronas a proveedores, y excluye transporte HTTP del cliente, fallos y respuestas reutilizadas. Las pruebas usan políticas y expedientes sintéticos; sus resultados no son una medición de productividad empresarial.
 
-Las cifras de proyectos reales requieren sus registros de origen y autorización de uso. Publica únicamente agregados anonimizados; no incorpores expedientes de personal ni datos identificables al repositorio.
+Las métricas de los trabajos de consultoría pertenecen a sus entornos de producción y sus registros son confidenciales. Este repositorio documenta la metodología de medición y las verificaciones de la implementación pública, sin incorporar datos internos del cliente. No se incluyen expedientes de personal ni datos identificables de la organización.

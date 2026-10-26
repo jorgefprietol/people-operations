@@ -2,6 +2,10 @@
 
 Servicio de onboarding con expedientes mínimos, dependencias entre tareas y aprobaciones explícitas para accesos. Permite comprobar qué bloquea una incorporación y quién registró cada paso sin almacenar nombres, documentos o correos personales.
 
+## Contexto y confidencialidad
+
+Este caso de uso forma parte de mi experiencia en soluciones implementadas en producción durante trabajos de consultoría. La versión pública es una implementación independiente con datos sintéticos que permite revisar la arquitectura, los flujos y los controles. Por confidencialidad, no se incluyen la identidad del cliente, su código ni sus registros operativos.
+
 Incluye consultas RAG sobre políticas versionadas, con filtro de acceso, citas y abstención. Un modelo configurado puede seleccionar las fuentes; la respuesta conserva extractos verificables y nunca sustituye una aprobación.
 
 [Arquitectura diagramada](docs/architecture.md) · [Flujo diagramado](docs/flow.md) · [Tecnologías utilizadas](docs/technologies.md)
